@@ -1,0 +1,7 @@
+%h1= @person.first_name
+
+
+= link_to "Back", root_path, class: "btn btn-default" 
+= link_to "Edit", edit_person_path, class: "btn btn-default" 
+= link_to "Delete", person_path, method: :delete, data: { confirm: "Are you sure ? "},  class: "btn btn-default" 
+ 

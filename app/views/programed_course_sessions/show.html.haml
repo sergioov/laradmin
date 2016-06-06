@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Programed course:
+  = @programed_course_session.programed_course
+%p
+  %b Session number:
+  = @programed_course_session.session_number
+%p
+  %b Topic:
+  = @programed_course_session.topic
+%p
+  %b Date:
+  = @programed_course_session.date
+
+= link_to 'Edit', edit_programed_course_session_path(@programed_course_session)
+\|
+= link_to 'Back', programed_course_sessions_path

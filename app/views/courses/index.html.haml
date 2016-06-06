@@ -1,0 +1,25 @@
+%h2 List of Courses
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Order
+      %th
+      %th
+      %th
+
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td= link_to course.name, course_programed_courses_path(course)
+        %td= course.description
+        %td= course.order
+        %td= link_to 'List of Schedules', course_programed_courses_path(course)
+        %td= link_to 'Edit', edit_course_path(course)
+        %td= link_to 'Destroy', course, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Course', new_course_path, class: "btn btn-default" 

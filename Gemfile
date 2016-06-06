@@ -47,6 +47,7 @@ group :development do
 end
 
 gem 'haml'
+gem 'haml-rails'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'

@@ -1,0 +1,10 @@
+= simple_form_for([@course, @programed_course, @programed_course_session]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :session_number
+    = f.input :topic
+    = f.input :date
+
+  .form-actions
+    = f.button :submit

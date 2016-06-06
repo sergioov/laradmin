@@ -1,0 +1,25 @@
+%p
+  %h2 
+    Listing programed courses for
+    %span
+      %b=@course.name
+
+%table.table
+  %thead
+    %tr
+      %th Start Date
+      %th Details
+      %th
+
+  %tbody
+    - @programed_courses.each do |programed_course|
+      %tr
+        %td= link_to programed_course.start_date, programed_course_programed_course_sessions_path(programed_course)
+        %td= programed_course.details
+-#        %td= link_to 'Destroy', [@course, programed_course], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+%br
+
+= link_to 'Back', courses_path, class: "btn btn-default"
+= link_to 'New Programed course', new_course_programed_course_path, class: "btn btn-default"

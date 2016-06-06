@@ -2,7 +2,7 @@
 %html
 %head
   %title Laradmin
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 
@@ -10,6 +10,9 @@
   %nav.navbar.navbar-default
     .container
       .navbar-brand= link_to "Lar Administración", root_path
+
+      %ul.nav.navbar-nav.navbar-left
+        %li= link_to "Cursos", courses_path 
 
       %ul.nav.navbar-nav.navbar-right
         %li= link_to "Registrar Persona", new_person_path 

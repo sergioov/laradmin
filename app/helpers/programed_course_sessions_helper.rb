@@ -1,0 +1,2 @@
+module ProgramedCourseSessionsHelper
+end

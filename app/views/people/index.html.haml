@@ -1,6 +1,20 @@
 %h2 People registered
 
-- @person.each do |person|
-  %h2=link_to person.full_name, person
+%table.table
+  %thead
+    %tr
+      %th Full Name
+      %th
+      %th
+      %th
+  
+  %tbody
+    - @person.each do |person|
+      %tr
+        %td=link_to person.full_name, person
+
+%br
+
+=link_to 'New Person', new_person_path, class: "btn btn-default"
 
 

@@ -1,0 +1,26 @@
+%h1 Listing programed_course_sessions
+
+%table
+  %thead
+    %tr
+      %th Session number
+      %th Topic
+      %th Date
+      %th
+      %th
+      %th
+
+  %tbody
+    - @programed_course_sessions.each do |programed_course_session|
+      %tr
+        %td= programed_course_session.session_number
+        %td= programed_course_session.topic
+        %td= programed_course_session.date
+        %td= link_to 'Destroy', programed_course_session_path(programed_course_session), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+-#        %td= link_to 'Show', course_programed_course_programed_course_session
+-#        %td= link_to 'Edit', edit_programed_course_session_path(programed_course_session)
+
+%br
+
+= link_to 'New Programed course session', new_programed_course_programed_course_session_path

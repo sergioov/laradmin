@@ -1,6 +1,8 @@
 class ProgramedCoursesController < ApplicationController
   before_action :set_programed_course, only: [ :show, :edit, :update, :destroy]
-  before_action :set_course
+  before_action :set_course, only: [:index, :new, :create]
+  before_action :set_available_supervisors, only: [:new, :create, :edit]
+
 
   # GET /programed_courses
   # GET /programed_courses.json
@@ -44,7 +46,7 @@ class ProgramedCoursesController < ApplicationController
   def update
     respond_to do |format|
       if @programed_course.update(programed_course_params)
-        format.html { redirect_to @course_programed_courses, notice: 'Programed course was successfully updated.' }
+        format.html { redirect_to course_programed_courses_path(@programed_course.course_id), notice: 'Programed course was successfully updated.' }
         format.json { render :show, status: :ok, location: @programed_course }
       else
         format.html { render :edit }
@@ -73,10 +75,15 @@ class ProgramedCoursesController < ApplicationController
 
     
     def programed_course_params
-      params.require(:programed_course).permit(:start_date, :details) 
+      params.require(:programed_course).permit(:start_date, :details, :supervisor_id) 
     end
 
     def set_course
       @course = Course.find(params[:course_id])
     end
+
+    def set_available_supervisors
+      @supervisors = Person.where(:teacher => true)
+    end
+
 end

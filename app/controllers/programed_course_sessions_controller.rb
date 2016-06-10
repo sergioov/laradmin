@@ -1,10 +1,11 @@
 class ProgramedCourseSessionsController < ApplicationController
   before_action :set_programed_course_session, only: [:show, :edit, :update, :destroy]
   before_action :set_programed_course, only: [:index, :new, :create ]
+
   # GET /programed_course_sessions
   # GET /programed_course_sessions.json
   def index
-    @programed_course_sessions = ProgramedCourseSession.all
+    @programed_course_sessions = ProgramedCourseSession.where(programed_course_id: @programed_course.id).all
   end
 
   # GET /programed_course_sessions/1
@@ -26,6 +27,7 @@ class ProgramedCourseSessionsController < ApplicationController
   # POST /programed_course_sessions.json
   def create
     @programed_course_session = ProgramedCourseSession.new(programed_course_session_params)
+    @programed_course_session.programed_course_id = @programed_course.id
 
     respond_to do |format|
       if @programed_course_session.save
@@ -74,6 +76,7 @@ class ProgramedCourseSessionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def programed_course_session_params
-      params.require(:programed_course_session).permit(:programed_course_id, :session_number, :topic, :date)
+      params.require(:programed_course_session).permit(:programed_course_id, :session_number, :topic, :date,)
     end
+
 end

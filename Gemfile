@@ -52,5 +52,3 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
 gem 'rails-jquery-autocomplete'
-
-

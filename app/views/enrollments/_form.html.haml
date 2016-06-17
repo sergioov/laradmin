@@ -1,0 +1,10 @@
+= simple_form_for(@enrollment) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :student, label_method: :full_name
+    = f.association :programed_course, collection: @programed_courses, label_method: :course_name, value_method: :id 
+
+
+  .form-actions
+    = f.button :submit

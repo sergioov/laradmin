@@ -1,11 +1,15 @@
 class ProgramedCourseSessionsController < ApplicationController
+  autocomplete :person, :last_name, :full => true, limit: 15, :column_name => 'last_name', :display_value => 'full_name', :full_model=>true 
   before_action :set_programed_course_session, only: [:show, :edit, :update, :destroy]
-  before_action :set_programed_course, only: [:index, :new, :create ]
+  before_action :set_programed_course, only: [:index, :new, :create]
 
   # GET /programed_course_sessions
   # GET /programed_course_sessions.json
   def index
     @programed_course_sessions = ProgramedCourseSession.where(programed_course_id: @programed_course.id).all
+    @enrollments = Enrollment.where(programed_course_id: @programed_course.id).all
+    @enrollment = Enrollment.new
+    @enrollment.programed_course_id=@programed_course.id
   end
 
   # GET /programed_course_sessions/1
@@ -45,7 +49,7 @@ class ProgramedCourseSessionsController < ApplicationController
   def update
     respond_to do |format|
       if @programed_course_session.update(programed_course_session_params)
-        format.html { redirect_to programed_course_sessions_url, notice: 'Programed course session was successfully updated.' }
+        format.html { redirect_to programed_course_programed_course_sessions_path(@programed_course_session.programed_course_id), notice: 'Programed course session was successfully updated.' }
         format.json { render :show, status: :ok, location: @programed_course_session }
       else
         format.html { render :edit }

@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
+
+  resource :programed_course_sessions do
+    get :autocomplete_person_last_name, on: :collection
+  end
   
   resources :courses do 
-    resources :programed_courses, shallow: true do 
+    resources :programed_courses, shallow: true do
+      resources :enrollments, shallow: true 
       resources :programed_course_sessions, shallow: true   
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :people 
+  
+
+
+  resources :people
 
   # You can have the root of your site routed with "root"
    root 'people#index'

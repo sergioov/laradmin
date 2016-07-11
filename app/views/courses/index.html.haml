@@ -5,6 +5,7 @@
     %tr
       %th Name
       %th Description
+      %th Generaciones
       %th Order
       %th
       %th
@@ -15,6 +16,7 @@
       %tr
         %td= link_to course.name, course_programed_courses_path(course)
         %td= course.description
+        %td= course.programed_courses.count
         %td= course.order
         %td= link_to 'List of Schedules', course_programed_courses_path(course)
         %td= link_to 'Edit', edit_course_path(course)

@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
 	before_action :find_person, only: [:show, :edit, :update, :destroy]
+	before_action :find_enrollments, only: [:show]
 
 
 	def index 
@@ -51,5 +52,8 @@ class PeopleController < ApplicationController
 		@person  = Person.find(params[:id])
 	end
 
+	def find_enrollments
+		@enrollments = Enrollment.where(student: @person)
+	end
 
 end

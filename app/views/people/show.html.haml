@@ -1,52 +1,56 @@
-.profile
-  %p 
-    %h2
-      Perfil de:
+.profile  
+  .row
+    .col-lg-7
+      %p 
+        %h2
+          Perfil de:
+          %span
+            = @person.full_name
+        %br
+      %table.table
+        %tbody
+          %tr
+            %td
+              %b Fecha de Nacimiento
+            %td
+              - if @person.birth_date != nil
+                =@person.birth_date.to_formatted_s(:long)
+              - else
+                No Birth date in DB 
+          %tr
+            %td
+              %b Telefono
+            %td
+              %span.glyphicon.glyphicon-earphone
+              %phone=link_to(@person.phone, "tel:"+@person.phone)
+          %tr
+            %td 
+              %b Correo
+            %td.email=@person.email
+          %tr
+            %td 
+              %b Direccion
+            %td.address=@person.address
+          %tr
+            %td 
+              %b Es maestro?
+            %td=@person.teacher
+          %tr
+            %td 
+              %b Fecha de creación
+            %td=@person.created_at.to_formatted_s(:long) 
+          %tr
+            %td 
+              %b Ultima actualización 
+            %td=@person.updated_at.to_formatted_s(:long)
+
+      = link_to "Back", root_path, class: "btn btn-default"   
+      = link_to "Edit", edit_person_path, class: "btn btn-default" 
+      = link_to "Delete", person_path, method: :delete, data: { confirm: "Are you sure ? "},  class: "btn btn-default" 
+    .col-lg-5  
+      %h2 
+        Enrollments 
+      Count
       %span
-        = @person.full_name
-  %br
-  
-  %table.table
-    %tbody
-      %tr
-        %td
-          %b Fecha de Nacimiento
-        %td
-          - if @person.birth_date != nil
-            =@person.birth_date.to_formatted_s(:long)
-          - else
-            No Birth date in DB 
-      %tr
-        %td
-          %b Telefono
-        %td
-          %span.glyphicon.glyphicon-earphone
-          %phone=link_to(@person.phone, "tel:"+@person.phone)
-      %tr
-        %td 
-          %b Correo
-        %td.email=@person.email
-      %tr
-        %td 
-          %b Direccion
-        %td.address=@person.address
-      %tr
-        %td 
-          %b Es maestro?
-        %td=@person.teacher
-      %tr
-        %td 
-          %b Fecha de creación
-        %td=@person.created_at.to_formatted_s(:long) 
-      %tr
-        %td 
-          %b Ultima actualización 
-        %td=@person.updated_at.to_formatted_s(:long)
-
-
-
-
-= link_to "Back", root_path, class: "btn btn-default" 
-= link_to "Edit", edit_person_path, class: "btn btn-default" 
-= link_to "Delete", person_path, method: :delete, data: { confirm: "Are you sure ? "},  class: "btn btn-default" 
- 
+        =@enrollments.count
+      =render 'see_enrollments'

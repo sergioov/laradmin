@@ -5,6 +5,8 @@
     = f.input :session_number
     = f.input :topic
     = f.input :date
+    = f.association :teacher, collection: @teachers, label_method: :full_name, value_method: :id 
+
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-default" 

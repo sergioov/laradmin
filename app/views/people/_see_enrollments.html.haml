@@ -1,0 +1,12 @@
+%table.table
+  %thead
+    %tr
+      %th Course
+      %th Description
+      %th Start Date
+  %tbody
+    - @enrollments.each do |enrollment|
+      %tr
+        %td=enrollment.programed_course.course.name
+        %td=enrollment.programed_course.details
+        %td=enrollment.programed_course.start_date

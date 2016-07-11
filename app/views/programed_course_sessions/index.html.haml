@@ -8,6 +8,7 @@
       %thead
         %tr
           %th Session number
+          %th Teacher
           %th Topic
           %th Date
           %th
@@ -18,6 +19,7 @@
       - @programed_course_sessions.each do |programed_course_session|
         %tr
           %td= programed_course_session.session_number
+          %td= programed_course_session.teacher.full_name
           %td= programed_course_session.topic
           %td= programed_course_session.date
           %td= link_to 'Edit', edit_programed_course_session_path(programed_course_session)
@@ -37,7 +39,7 @@
       %tbody
       - @enrollments.each do |enrollment|
         %tr
-          %td= enrollment.student.full_name
+          %td=link_to enrollment.student.full_name, person_path(enrollment.student.id)
 
     = render 'enrollment'
 

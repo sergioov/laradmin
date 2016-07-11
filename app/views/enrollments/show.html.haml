@@ -7,6 +7,6 @@
   %b Programed course:
   = @enrollment.programed_course
 
-= link_to 'Edit', edit_enrollment_path(@enrollment)
+= link_to 'Edit', edit_enrollment_path(@enrollment), class: "btn btn-default" 
 \|
-= link_to 'Back to Programed Course', programed_course_programed_course_sessions_path(@enrollment.programed_course_id)
+= link_to 'Back to Programed Course', programed_course_programed_course_sessions_path(@enrollment.programed_course_id), class: "btn btn-default" 

@@ -1,4 +1,4 @@
-= simple_form_for @person, html: { } do |f|
+= simple_form_for @person do |f|
   -if @person.errors.any?
     #errors
       %p
@@ -7,15 +7,16 @@
       %ul 
         - @person.errors.full_messages.each |msg|
         %li= msg
-  .panel-body
-    =f.input :first_name, input_html: { class: 'form-control' } 
-    =f.input :second_names, input_html: { class: 'form-control' }
-    =f.input :last_name, input_html: { class: 'form-control' }
-    =f.input :second_last_name, input_html: { class: 'form-control' } 
-    =f.input :birth_date, as: :date, html5: true, input_html: { class: 'form-control' } 
-    =f.input :phone, input_html: { class: 'form-control' } 
-    =f.input :email, input_html: { class: 'form-control' } 
-    =f.input :address, input_html: { class: 'form-control' } 
-    =f.input :teacher,  input_html: { class: 'form-control' }
+  .row
+    .panel-body.col-sm-4
+      =f.input :teacher
+      =f.input :first_name, input_html: { class: 'form-control' } 
+      =f.input :second_names, input_html: { class: 'form-control' }
+      =f.input :last_name, input_html: { class: 'form-control' }
+      =f.input :second_last_name, input_html: { class: 'form-control' } 
+      =f.input :birth_date, as: :date, html5: true, input_html: { class: 'form-control' } 
+      =f.input :phone, input_html: { class: 'form-control' } 
+      =f.input :email, input_html: { class: 'form-control' } 
+      =f.input :address, input_html: { class: 'form-control' } 
   
   = f.button :submit

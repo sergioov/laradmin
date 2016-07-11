@@ -7,7 +7,7 @@ class ProgramedCoursesController < ApplicationController
   # GET /programed_courses
   # GET /programed_courses.json
   def index
-    @programed_courses = ProgramedCourse.where(course_id: @course.id).all
+    @programed_courses = ProgramedCourse.where(course_id: @course.id).all.order(:start_date)
   end
 
   # GET /programed_courses/1

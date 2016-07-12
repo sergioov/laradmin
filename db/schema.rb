@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -26,11 +25,10 @@ ActiveRecord::Schema.define(version: 20160619160649) do
     t.integer  "student_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.index ["programed_course_id", "student_id"], name: "index_enrollments_on_programed_course_id_and_student_id", unique: true
+    t.index ["programed_course_id"], name: "index_enrollments_on_programed_course_id"
+    t.index ["student_id"], name: "index_enrollments_on_student_id"
   end
-
-  add_index "enrollments", ["programed_course_id", "student_id"], name: "index_enrollments_on_programed_course_id_and_student_id", unique: true
-  add_index "enrollments", ["programed_course_id"], name: "index_enrollments_on_programed_course_id"
-  add_index "enrollments", ["student_id"], name: "index_enrollments_on_student_id"
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
@@ -54,10 +52,9 @@ ActiveRecord::Schema.define(version: 20160619160649) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "teacher_id"
+    t.index ["programed_course_id"], name: "index_programed_course_sessions_on_programed_course_id"
+    t.index ["teacher_id"], name: "index_programed_course_sessions_on_teacher_id"
   end
-
-  add_index "programed_course_sessions", ["programed_course_id"], name: "index_programed_course_sessions_on_programed_course_id"
-  add_index "programed_course_sessions", ["teacher_id"], name: "index_programed_course_sessions_on_teacher_id"
 
   create_table "programed_courses", force: :cascade do |t|
     t.integer  "course_id"
@@ -66,9 +63,8 @@ ActiveRecord::Schema.define(version: 20160619160649) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "supervisor_id"
+    t.index ["course_id"], name: "index_programed_courses_on_course_id"
+    t.index ["supervisor_id"], name: "index_programed_courses_on_supervisor_id"
   end
-
-  add_index "programed_courses", ["course_id"], name: "index_programed_courses_on_course_id"
-  add_index "programed_courses", ["supervisor_id"], name: "index_programed_courses_on_supervisor_id"
 
 end

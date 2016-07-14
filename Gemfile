@@ -4,8 +4,6 @@ ruby "2.3.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails' 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-gem 'mysql2'
 gem 'pg'
 
 # Use SCSS for stylesheets

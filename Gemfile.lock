@@ -99,10 +99,12 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    mysql2 (0.4.4)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    pg (0.18.4)
     pkg-config (1.1.7)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -126,6 +128,11 @@ GEM
       loofah (~> 2.0)
     rails-jquery-autocomplete (1.0.3)
       rails (>= 3.2)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.0.0)
       actionpack (= 5.0.0)
       activesupport (= 5.0.0)
@@ -195,8 +202,11 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  mysql2
+  pg
   rails
   rails-jquery-autocomplete
+  rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   seed_dump

@@ -17,4 +17,4 @@
 /tmp
 
 # ignore secrets
-/config/secrets.yml
+/Dev Info.txt

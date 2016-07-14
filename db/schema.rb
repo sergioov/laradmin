@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20160619160649) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -25,9 +28,9 @@ ActiveRecord::Schema.define(version: 20160619160649) do
     t.integer  "student_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.index ["programed_course_id", "student_id"], name: "index_enrollments_on_programed_course_id_and_student_id", unique: true
-    t.index ["programed_course_id"], name: "index_enrollments_on_programed_course_id"
-    t.index ["student_id"], name: "index_enrollments_on_student_id"
+    t.index ["programed_course_id", "student_id"], name: "index_enrollments_on_programed_course_id_and_student_id", unique: true, using: :btree
+    t.index ["programed_course_id"], name: "index_enrollments_on_programed_course_id", using: :btree
+    t.index ["student_id"], name: "index_enrollments_on_student_id", using: :btree
   end
 
   create_table "people", force: :cascade do |t|
@@ -52,8 +55,8 @@ ActiveRecord::Schema.define(version: 20160619160649) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "teacher_id"
-    t.index ["programed_course_id"], name: "index_programed_course_sessions_on_programed_course_id"
-    t.index ["teacher_id"], name: "index_programed_course_sessions_on_teacher_id"
+    t.index ["programed_course_id"], name: "index_programed_course_sessions_on_programed_course_id", using: :btree
+    t.index ["teacher_id"], name: "index_programed_course_sessions_on_teacher_id", using: :btree
   end
 
   create_table "programed_courses", force: :cascade do |t|
@@ -63,8 +66,12 @@ ActiveRecord::Schema.define(version: 20160619160649) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "supervisor_id"
-    t.index ["course_id"], name: "index_programed_courses_on_course_id"
-    t.index ["supervisor_id"], name: "index_programed_courses_on_supervisor_id"
+    t.index ["course_id"], name: "index_programed_courses_on_course_id", using: :btree
+    t.index ["supervisor_id"], name: "index_programed_courses_on_supervisor_id", using: :btree
   end
 
+  add_foreign_key "programed_course_sessions", "people", column: "teacher_id"
+  add_foreign_key "programed_course_sessions", "programed_courses"
+  add_foreign_key "programed_courses", "courses"
+  add_foreign_key "programed_courses", "people", column: "supervisor_id"
 end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resource :programed_course_sessions do
     get :autocomplete_person_last_name, on: :collection
   end

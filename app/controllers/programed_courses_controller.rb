@@ -2,6 +2,7 @@ class ProgramedCoursesController < ApplicationController
   before_action :set_programed_course, only: [ :show, :edit, :update, :destroy]
   before_action :set_course, only: [:index, :new, :create]
   before_action :set_available_supervisors, only: [:new, :create, :edit]
+  before_action :authenticate_user!
 
 
   # GET /programed_courses

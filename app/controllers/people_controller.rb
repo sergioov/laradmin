@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
 	before_action :find_person, only: [:show, :edit, :update, :destroy]
 	before_action :find_enrollments, only: [:show]
-
+  before_action :authenticate_user!
 
 	def index 
 		@person = Person.all

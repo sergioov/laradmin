@@ -3,6 +3,7 @@ class ProgramedCourseSessionsController < ApplicationController
   before_action :set_programed_course_session, only: [:show, :edit, :update, :destroy]
   before_action :set_programed_course, only: [:index, :new, :create]
   before_action :set_available_teachers, only: [:new, :create, :edit]
+  before_action :authenticate_user!
 
 
   # GET /programed_course_sessions

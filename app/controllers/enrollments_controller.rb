@@ -1,6 +1,7 @@
 class EnrollmentsController < ApplicationController
   before_action :set_enrollment, only: [:show, :edit, :update, :destroy]
   before_action :set_programed_courses, only: [:show, :edit, :update, :destroy, :new]
+  before_action :authenticate_user!
 
   # GET /enrollments
   # GET /enrollments.json

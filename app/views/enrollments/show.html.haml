@@ -1,12 +1,12 @@
 %p#notice= notice
 
 %p
-  %b Student:
+  %b Alumno:
   = @enrollment.student
 %p
-  %b Programed course:
+  %b Curso programado:
   = @enrollment.programed_course
 
-= link_to 'Edit', edit_enrollment_path(@enrollment), class: "btn btn-default" 
+= link_to 'Editar', edit_enrollment_path(@enrollment), class: "btn btn-default" 
 \|
-= link_to 'Back to Programed Course', programed_course_programed_course_sessions_path(@enrollment.programed_course_id), class: "btn btn-default" 
+= link_to 'Vover a curso programado', programed_course_programed_course_sessions_path(@enrollment.programed_course_id), class: "btn btn-default" 

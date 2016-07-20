@@ -9,14 +9,15 @@
         %li= msg
   .row
     .panel-body.col-sm-4
-      =f.input :teacher
-      =f.input :first_name, input_html: { class: 'form-control' } 
-      =f.input :second_names, input_html: { class: 'form-control' }
-      =f.input :last_name, input_html: { class: 'form-control' }
-      =f.input :second_last_name, input_html: { class: 'form-control' } 
-      =f.input :birth_date, as: :date, html5: true, input_html: { class: 'form-control' } 
-      =f.input :phone, input_html: { class: 'form-control' } 
-      =f.input :email, input_html: { class: 'form-control' } 
-      =f.input :address, input_html: { class: 'form-control' } 
+      =f.input :teacher, label: "Maestro"
+      =f.input :first_name, label: "Primer Nombre", input_html: { class: 'form-control' } 
+      =f.input :second_names, label: "Segundo Nombre", input_html: { class: 'form-control' }
+      =f.input :last_name, label: "Primer Apellido", input_html: { class: 'form-control' }
+      =f.input :second_last_name, label: "Segundo Apellido", input_html: { class: 'form-control' } 
+      =f.input :birth_date, label: "Fecha de Nacimiento", as: :date, html5: true, input_html: { class: 'form-control' }
+      =f.input :aniversary, label: "Fecha de Aniversario", as: :date, html5: true, input_html: { class: 'form-control' }
+      =f.input :phone, label: "Telefono", input_html: { class: 'form-control' } 
+      =f.input :email, label: "Email" , input_html: { class: 'form-control' } 
+      =f.input :address, label: "Dirección", input_html: { class: 'form-control' } 
   
-  = f.button :submit
+  = f.button :submit, "Guardar"

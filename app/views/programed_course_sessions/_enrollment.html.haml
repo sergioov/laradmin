@@ -1,7 +1,7 @@
 = simple_form_for [@programed_course, @programed_course.enrollments.build] do |f|
   = f.error_notification
   .form-inputs
-    = f.input :student, :url => autocomplete_person_last_name_programed_course_sessions_path, as: :autocomplete, input_html: { class: 'form-input form-control' }, label: false, :id_element => '#student_id'
+    = f.input :student, label:"Alumno (Buscar por apellido)", :url => autocomplete_person_last_name_programed_course_sessions_path, as: :autocomplete, input_html: { class: 'form-input form-control' }, label: false, :id_element => '#student_id'
     =f.hidden_field :student_id, :id => "student_id"
 
   .form-actions

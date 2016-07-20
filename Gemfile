@@ -8,6 +8,8 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'rails-i18n'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

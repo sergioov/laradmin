@@ -1,7 +1,7 @@
 = simple_form_for ([@course, @programed_course]) do |f|
   = f.error_notification
-  = f.input :start_date, as: :date, html5: true, input_html: { class: 'form-control' }  
-  = f.input :details,  input_html: { class: 'form-control' }
+  = f.input :start_date, label: "Fecha de inicio", as: :date, html5: true, input_html: { class: 'form-control' }  
+  = f.input :details, label: "Detalles",  input_html: { class: 'form-control' }
   = f.association :supervisor, collection: @supervisors, label_method: :full_name, value_method: :id 
 
 

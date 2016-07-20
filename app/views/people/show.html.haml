@@ -16,10 +16,18 @@
               - if @person.birth_date != nil
                 =@person.birth_date.to_formatted_s(:long)
               - else
-                No Birth date in DB 
+                Sin Fecha registrada
           %tr
             %td
-              %b Telefono
+              %b Fecha de Aniversario
+            %td
+              - if @person.aniversary != nil
+                =@person.aniversary.to_formatted_s(:long)
+              - else
+                Sin Fecha registrada
+          %tr
+            %td
+              %b Teléfono
             %td
               %span.glyphicon.glyphicon-earphone
               %phone=link_to(@person.phone, "tel:"+@person.phone)
@@ -29,7 +37,7 @@
             %td.email=@person.email
           %tr
             %td 
-              %b Direccion
+              %b Dirección
             %td.address=@person.address
           %tr
             %td 
@@ -44,13 +52,13 @@
               %b Ultima actualización 
             %td=@person.updated_at.to_formatted_s(:long)
 
-      = link_to "Back", root_path, class: "btn btn-default"   
-      = link_to "Edit", edit_person_path, class: "btn btn-default" 
-      = link_to "Delete", person_path, method: :delete, data: { confirm: "Are you sure ? "},  class: "btn btn-default" 
+      = link_to "Atras", root_path, class: "btn btn-default"   
+      = link_to "Editar", edit_person_path, class: "btn btn-default" 
+      = link_to "Destruir", person_path, method: :delete, data: { confirm: "Are you sure ? "},  class: "btn btn-default" 
     .col-lg-5  
       %h2 
-        Enrollments 
-      Count
+        Inscripciones 
+      Cursos inscritos
       %span
         =@enrollments.count
       =render 'see_enrollments'

@@ -3,14 +3,14 @@
     %h3= "Supervisor de curso: #{@programed_course.supervisor.full_name}"
 .row
   .col-lg-8
-    %h2 Listing programed course sessions
+    %h2 Lista de sesiones
     %table.table
       %thead
         %tr
-          %th Session number
-          %th Teacher
-          %th Topic
-          %th Date
+          %th Número de sesión
+          %th Moderador
+          %th Tema
+          %th Fecha
           %th
           %th
           %th
@@ -22,15 +22,15 @@
           %td= programed_course_session.teacher.full_name
           %td= programed_course_session.topic
           %td= programed_course_session.date
-          %td= link_to 'Edit', edit_programed_course_session_path(programed_course_session)
+          %td= link_to 'Editar', edit_programed_course_session_path(programed_course_session)
           %td= link_to 'Destroy', programed_course_session_path(programed_course_session), :method => :delete, :data => { :confirm => 'Are you sure?' }
     %br
-    = link_to 'Back', course_programed_courses_path(@programed_course.course_id), class: "btn btn-default"
+    = link_to 'Atras', course_programed_courses_path(@programed_course.course_id), class: "btn btn-default"
     = link_to 'New session', new_programed_course_programed_course_session_path, class: "btn btn-default" 
   
 
   .col-lg-4
-    %h2 Students
+    %h2 Alumnos
     %table.table
       %thead
         %tr
@@ -43,7 +43,7 @@
 
     = render 'enrollment'
 
--#        %td= link_to 'Show', course_programed_course_programed_course_session
--#        %td= link_to 'Edit', edit_programed_course_session_path(programed_course_session)
+-#        %td= link_to 'Mostrar', course_programed_course_programed_course_session
+-#        %td= link_to 'Editar', edit_programed_course_session_path(programed_course_session)
 .row
 

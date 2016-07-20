@@ -1,11 +1,11 @@
-%h1 Listing enrollments
+%h1 Lista de inscripciones
 
 
 %table.table
   %thead
     %tr
-      %th Student
-      %th Programed course
+      %th Alumno
+      %th Curso Programado
       %th
       %th
       %th
@@ -15,10 +15,10 @@
       %tr
         %td= enrollment.student.full_name
         %td= enrollment.programed_course.course_name
-        %td= link_to 'Show', enrollment
-        %td= link_to 'Edit', edit_enrollment_path(enrollment)
-        %td= link_to 'Destroy', enrollment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Mostrar', enrollment
+        %td= link_to 'Editar', edit_enrollment_path(enrollment)
+        %td= link_to 'Destruir', enrollment, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Enrollment', new_enrollment_path, class: "btn btn-default" 
+= link_to 'Nueva Inscripción', new_enrollment_path, class: "btn btn-default" 

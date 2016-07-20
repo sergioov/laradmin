@@ -2,10 +2,10 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :session_number
-    = f.input :topic
-    = f.input :date
-    = f.association :teacher, collection: @teachers, label_method: :full_name, value_method: :id 
+    = f.input :session_number, label: "Numero de Sesión"
+    = f.input :topic, label: "Tema"
+    = f.input :date, label: "Fecha"
+    = f.association :teacher, collection: @teachers, label_method: :full_name, value_method: :id, label: "Moderador"
 
 
   .form-actions

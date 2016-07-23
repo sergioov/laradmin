@@ -4,14 +4,13 @@
   %thead
     %tr
       %th Nombre
-      %th
-      %th
-      %th
+      %th Cursos Inscritos
   
   %tbody
     - @person.each do |person|
       %tr
         %td=link_to person.full_name, person
+        %td=Enrollment.where(student: person).count
 
 %br
 

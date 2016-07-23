@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   resources :people
 
+  get 'teachers' => 'teachers#index'
+
   # You can have the root of your site routed with "root"
    root 'people#index'
 

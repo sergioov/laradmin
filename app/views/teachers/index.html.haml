@@ -1,0 +1,14 @@
+%h2 Lista de maestros
+
+%table.table
+  %thead
+    %tr
+      %th Nombre
+      %th Numero de Sesiones
+  %tbody
+    - @teachers.each do |teacher|
+      %tr
+        %td= link_to teacher.full_name, people_path(teacher)
+        %td= ProgramedCourseSession.where(teacher: teacher).count
+
+%br

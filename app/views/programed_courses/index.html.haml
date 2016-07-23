@@ -1,6 +1,6 @@
 %p
   %h2 
-    Lista de cursos programados para:
+    Lista de generacion para cursos:
     %span
       %b=@course.name
 
@@ -19,7 +19,10 @@
         %td= link_to 'Ver', programed_course_programed_course_sessions_path(programed_course)
         %td= link_to programed_course.start_date, programed_course_programed_course_sessions_path(programed_course)
         %td= programed_course.details
-        %td= programed_course.supervisor.full_name
+        -if programed_course.supervisor
+          %td= programed_course.supervisor.full_name
+        - else
+          %td Sin registro de maestro
         %td= link_to 'Editar', edit_programed_course_path(programed_course)
 -#        %td= link_to 'Destroy', [@course, programed_course], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
@@ -27,4 +30,4 @@
 %br
 
 = link_to 'Atras', courses_path, class: "btn btn-default"
-= link_to 'Nuevo Curso Programado', new_course_programed_course_path, class: "btn btn-default"
+= link_to 'Nueva Generación', new_course_programed_course_path, class: "btn btn-default"

@@ -1,6 +1,9 @@
 .row
   .col-lg-12
-    %h3= "Supervisor de curso: #{@programed_course.supervisor.full_name}"
+    - if @programed_course.supervisor
+      %h3= "Supervisor de curso: #{@programed_course.supervisor.full_name}"
+    - else
+      %h3 Supervisor de curso: Sin supervisor registrado  
 .row
   .col-lg-8
     %h2 Lista de sesiones
@@ -19,14 +22,17 @@
       - @programed_course_sessions.each do |programed_course_session|
         %tr
           %td= programed_course_session.session_number
-          %td= programed_course_session.teacher.full_name
+          - if programed_course_session.teacher
+            %td= programed_course_session.teacher.full_name
+          - else
+            %td Sin registro de maestro
           %td= programed_course_session.topic
           %td= programed_course_session.date
           %td= link_to 'Editar', edit_programed_course_session_path(programed_course_session)
           %td= link_to 'Destroy', programed_course_session_path(programed_course_session), :method => :delete, :data => { :confirm => 'Are you sure?' }
     %br
     = link_to 'Atras', course_programed_courses_path(@programed_course.course_id), class: "btn btn-default"
-    = link_to 'New session', new_programed_course_programed_course_session_path, class: "btn btn-default" 
+    = link_to 'Nueva sesión', new_programed_course_programed_course_session_path, class: "btn btn-default" 
   
 
   .col-lg-4

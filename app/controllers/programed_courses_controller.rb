@@ -76,7 +76,7 @@ class ProgramedCoursesController < ApplicationController
 
     
     def programed_course_params
-      params.require(:programed_course).permit(:start_date, :details, :supervisor_id) 
+      params.require(:programed_course).permit(:start_date, :close_date, :details, :supervisor_id) 
     end
 
     def set_course

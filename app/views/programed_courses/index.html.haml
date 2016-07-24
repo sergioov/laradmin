@@ -9,6 +9,7 @@
     %tr
       %td
       %th Fecha de inicio
+      %th Fecha de clausura
       %th Detalles
       %th Supervisor
       %th
@@ -18,6 +19,7 @@
       %tr
         %td= link_to 'Ver', programed_course_programed_course_sessions_path(programed_course)
         %td= link_to programed_course.start_date, programed_course_programed_course_sessions_path(programed_course)
+        %td= link_to programed_course.close_date, programed_course_programed_course_sessions_path(programed_course)
         %td= programed_course.details
         -if programed_course.supervisor
           %td= programed_course.supervisor.full_name

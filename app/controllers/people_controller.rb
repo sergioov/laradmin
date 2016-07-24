@@ -2,6 +2,7 @@ class PeopleController < ApplicationController
 	before_action :find_person, only: [:show, :edit, :update, :destroy]
 	before_action :find_enrollments, only: [:show]
   before_action :authenticate_user!
+  before_action :find_courses_taught, only: [:show]
 
 	def index 
 		@person = Person.all
@@ -38,7 +39,7 @@ class PeopleController < ApplicationController
 	end 
 
 	def destroy
-		@recipe.destroy	
+		@person.destroy	
 		redirect_to root_path, notice: "Successful delete of person"
 	end
 
@@ -56,4 +57,7 @@ class PeopleController < ApplicationController
 		@enrollments = Enrollment.where(student: @person)
 	end
 
+	def find_courses_taught
+		@courses_taught = ProgramedCourseSession.where(teacher_id: @person)
+	end
 end

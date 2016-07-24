@@ -62,3 +62,21 @@
       %span
         =@enrollments.count
       =render 'see_enrollments'
+  - if @person.teacher
+    .row
+      .col-lg-7
+        %h3
+          Sessiones impartidas
+        Cuenta de sesiones impartidas  
+        %span
+          =@courses_taught.count
+        %table.table
+          %thead
+            %tr
+              %th Sesión
+              %th Fecha de sesión
+          - @courses_taught.each do |course|
+            %tbody
+              %tr
+                %td= course.topic
+                %td= course.date

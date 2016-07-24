@@ -13,6 +13,7 @@
   %tbody
     - @enrollments.each do |enrollment|
       %tr
+
         %td= enrollment.student.full_name
         %td= enrollment.programed_course.course_name
         %td= link_to 'Mostrar', enrollment
@@ -21,4 +22,4 @@
 
 %br
 
-= link_to 'Nueva Inscripción', new_enrollment_path, class: "btn btn-default" 
+/ = link_to 'Nueva Inscripción', new_enrollment_path, class: "btn btn-default" 

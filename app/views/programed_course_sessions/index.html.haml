@@ -41,12 +41,16 @@
       %thead
         %tr
           %th Nombre
+          %th 
       
       %tbody
       - @enrollments.each do |enrollment|
         %tr
-          %td=link_to enrollment.student.full_name, person_path(enrollment.student.id)
-
+          -if enrollment.student.full_name
+            %td=link_to enrollment.student.full_name, person_path(enrollment.student.id)
+          -else
+            %td=link_to enrollment.student_id, person_path(enrollment.student.id)
+          %th= link_to "Destruir", enrollment, method: :delete, data: { confirm: "Are you sure ? "}  
     = render 'enrollment'
 
 -#        %td= link_to 'Mostrar', course_programed_course_programed_course_session

@@ -18,7 +18,7 @@
         %td= course.description
         %td= course.programed_courses.count
         %td= course.order
-        %td= link_to 'Lista de cursos programados', course_programed_courses_path(course)
+        %td= link_to 'Lista de generaciones', course_programed_courses_path(course)
         %td= link_to 'Editar', edit_course_path(course)
         %td= link_to 'Destruir', course, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

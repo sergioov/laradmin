@@ -10,7 +10,7 @@
   %b Order:
   = @course.order
 
-= link_to "List programed courses", course_programed_courses_path(@course), class: "btn btn-default"
-= link_to "Back", root_path, class: "btn btn-default" 
-= link_to "Edit", edit_course_path, class: "btn btn-default" 
-= link_to "Delete", course_path, method: :delete, data: { confirm: "Are you sure ? "},  class: "btn btn-default" 
+= link_to "Lista de Generaciones", course_programed_courses_path(@course), class: "btn btn-default"
+= link_to "Atras", root_path, class: "btn btn-default" 
+= link_to "Editar", edit_course_path, class: "btn btn-default" 
+= link_to "Destruir", course_path, method: :delete, data: { confirm: "Are you sure ? "},  class: "btn btn-default" 

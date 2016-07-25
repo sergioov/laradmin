@@ -13,6 +13,8 @@ class ProgramedCourseSessionsController < ApplicationController
     @enrollments = Enrollment.where(programed_course_id: @programed_course.id).all
     @enrollment = Enrollment.new
     @enrollment.programed_course_id=@programed_course.id
+    set_teams
+    @team = Team.new
   end
 
   # GET /programed_course_sessions/1
@@ -88,6 +90,10 @@ class ProgramedCourseSessionsController < ApplicationController
 
     def set_available_teachers
       @teachers = Person.where(:teacher => true)
+    end
+
+    def set_teams
+      @teams = Team.where(programed_course: @programed_course)
     end
 
 end

@@ -1,0 +1,23 @@
+%h1 Lista de equipos
+
+%table.table
+  %thead
+    %tr
+      %th Generación
+      %th Coordinador de grupo
+      %th
+      %th
+      %th
+
+  %tbody
+    - @teams.each do |team|
+      %tr
+        %td= team.programed_course.course_name
+        %td= team.person.full_name
+        %td= link_to 'Mostrar', team
+        %td= link_to 'Editar', edit_team_path(team)
+        %td= link_to 'Destruir', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Nuevo Equipo', new_team_path

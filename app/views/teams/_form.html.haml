@@ -1,0 +1,9 @@
+= simple_form_for(@team) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :programed_course, label: "Curso", label_method: :course_name
+    = f.association :person, label: "Coordinador", label_method: :full_name
+
+  .form-actions
+    = f.button :submit

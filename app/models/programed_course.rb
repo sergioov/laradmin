@@ -4,7 +4,8 @@ class ProgramedCourse < ActiveRecord::Base
   belongs_to :supervisor, :class_name => "Person"
   has_many :enrollments, dependent: :destroy
   has_many :students, :through => :enrollments, dependent: :destroy
-
+  has_many :teams
+  
   def course_name
     "#{course.name} empieza #{start_date}"
   end

@@ -1,0 +1,10 @@
+= simple_form_for [@team] do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :person, label:"Coordinador (Buscar por apellido)", :url => autocomplete_person_last_name_programed_course_sessions_path, as: :autocomplete, input_html: { class: 'form-input form-control' }, :id_element => '#person_id'
+    =f.hidden_field :person_id, :id => "person_id"
+    =f.hidden_field :programed_course_id, value: @programed_course.id
+
+  .form-actions
+    = f.button :submit, "Crear Equipo", class: "form-button btn btn-default"
+

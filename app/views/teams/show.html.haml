@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Generación:
+  = @team.programed_course.course_name
+%p
+  %b Coordinador:
+  = @team.person.full_name
+
+= link_to 'Edit', edit_team_path(@team)
+\|
+= link_to 'Back', teams_path
+
+%h2 Integrantes:
+%table.table
+  %thead
+    %th Integrantes
+    %th
+  %tbody
+  - @team.students.each do |member|
+    %td= member.full_name

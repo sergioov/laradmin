@@ -1,0 +1,10 @@
+= simple_form_for [@team, @team_member] do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :student, label: "Nombre", label_method: :full_name
+    =f.hidden_field :team_id, value: @team.id
+
+
+  .form-actions
+    = f.button :submit, "Agregar"

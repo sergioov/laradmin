@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   #    put 'users/:id' => 'devise/registrations#update', :as => 'user_registration'            
   #end
 
+  resources :teams do
+    resources :team_members
+  end
 
 
 

@@ -29,7 +29,7 @@
           %td= programed_course_session.topic
           %td= programed_course_session.date
           %td= link_to 'Editar', edit_programed_course_session_path(programed_course_session)
-          %td= link_to 'Destroy', programed_course_session_path(programed_course_session), :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %td= link_to 'Destruir', programed_course_session_path(programed_course_session), :method => :delete, :data => { :confirm => 'Are you sure?' }
     %br
     = link_to 'Atras', course_programed_courses_path(@programed_course.course_id), class: "btn btn-default"
     = link_to 'Nueva sesión', new_programed_course_programed_course_session_path, class: "btn btn-default" 
@@ -56,4 +56,21 @@
 -#        %td= link_to 'Mostrar', course_programed_course_programed_course_session
 -#        %td= link_to 'Editar', edit_programed_course_session_path(programed_course_session)
 .row
-
+  .col-lg-8
+    %h2 Equipos
+    %table.table
+      %thead
+        %tr
+          %th Coordinador
+          %th Integrantes
+          %th 
+      %tbody
+      - @teams.each do |team|
+        %tr
+          %td= team.person.full_name
+          %td
+            - team.students.each do |member|
+              =member.full_name
+              %br
+          %td= link_to 'Editar', edit_team_path(team) 
+    = render 'team'

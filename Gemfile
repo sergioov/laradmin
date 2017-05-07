@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.3.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails' 
+gem 'rails', '4.2.7.1' 
 # Use postgres as the database for Active Record
 gem 'pg'
 
@@ -52,7 +52,7 @@ group :development do
   gem 'seed_dump'
 end
 
-gem 'haml'
+gem 'haml', '~> 4.0'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'bootstrap-sass'
